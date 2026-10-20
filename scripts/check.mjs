@@ -32,7 +32,7 @@ spawnSync(
     `--outputFile=${output}`,
     ...paths,
   ],
-  { stdio: ["ignore", "ignore", "inherit"] },
+  { stdio: ["ignore", "ignore", "inherit"], shell: process.platform === "win32" },
 );
 if (!existsSync(output)) {
   console.error(
